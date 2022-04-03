@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarhammerManager", "WarhammerManager\WarhammerManager\WarhammerManager.csproj", "{6CB228F6-46E6-4126-8B8F-A6C5ACAA957C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarhammerConsole", "WarhammerConsole\WarhammerConsole\WarhammerConsole.csproj", "{3DD68DC7-AAA0-4D62-9CD1-D7E8194E4C0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CB228F6-46E6-4126-8B8F-A6C5ACAA957C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB228F6-46E6-4126-8B8F-A6C5ACAA957C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB228F6-46E6-4126-8B8F-A6C5ACAA957C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB228F6-46E6-4126-8B8F-A6C5ACAA957C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD68DC7-AAA0-4D62-9CD1-D7E8194E4C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD68DC7-AAA0-4D62-9CD1-D7E8194E4C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD68DC7-AAA0-4D62-9CD1-D7E8194E4C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD68DC7-AAA0-4D62-9CD1-D7E8194E4C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
