@@ -8,5 +8,11 @@ namespace WarhammerManager.Equipments
 {
     class Armor: Equipment
     {
+        int armor;
+
+        public Armor(string _armorName, int _armor) : base(_armorName)
+        {
+            armor = _armor;
+        }
     }
 }

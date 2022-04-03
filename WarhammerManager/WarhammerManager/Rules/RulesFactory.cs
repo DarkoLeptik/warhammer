@@ -8,6 +8,8 @@ namespace WarhammerManager.Rules
 {
     class RulesFactory
     {
+        List<Rules> rules;
+
         public static RulesFactory instance;
 
         public static RulesFactory Instance
@@ -20,6 +22,11 @@ namespace WarhammerManager.Rules
                 }
                 return instance;
             }
+        }
+
+        public RulesFactory()
+        {
+            rules = new List<Rules>();
         }
     }
 }

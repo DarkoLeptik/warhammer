@@ -8,5 +8,11 @@ namespace WarhammerManager.Equipments
 {
     abstract class Equipment
     {
+        string equipmentName;
+
+        public Equipment(string _equipmentName)
+        {
+            equipmentName = _equipmentName;
+        }
     }
 }
