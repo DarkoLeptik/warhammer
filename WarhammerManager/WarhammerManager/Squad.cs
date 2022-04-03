@@ -1,6 +1,11 @@
 ﻿namespace WarhammerManager;
 
-public class Squad
+public abstract class Squad<T> where T : Army
 {
-    
+    private T _myArmy;
+
+    protected Squad(T associatedArmy)
+    {
+        _myArmy = associatedArmy;
+    }
 }

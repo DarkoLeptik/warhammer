@@ -1,6 +1,9 @@
 ﻿namespace OrcsAndMarines;
 
-public class SluggaBoyz : WarhammerManager.Squad
+public class SluggaBoyz : WarhammerManager.Squad<Ork>
 {
-    
+    public SluggaBoyz(Ork associatedArmy) : base(associatedArmy)
+    {
+        Console.WriteLine("We are the SluggaBoyzzz !!!");
+    }
 }

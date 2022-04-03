@@ -1,6 +1,13 @@
 ﻿namespace WarhammerManager;
 
-public class Troop
+public abstract class Troop<T1,T2> 
+    where T1 : Squad<T2> 
+    where T2 : Army
 {
-    
+    private T1 _mySquad;
+
+    protected Troop(T1 newSquad)
+    {
+        _mySquad = newSquad;
+    }
 }
