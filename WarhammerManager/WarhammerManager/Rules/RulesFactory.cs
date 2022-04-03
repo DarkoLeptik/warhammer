@@ -8,5 +8,18 @@ namespace WarhammerManager.Rules
 {
     class RulesFactory
     {
+        public static RulesFactory instance;
+
+        public static RulesFactory Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new RulesFactory();
+                }
+                return instance;
+            }
+        }
     }
 }
