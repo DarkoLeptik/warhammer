@@ -1,4 +1,4 @@
-namespace ArmyContainer;
+namespace WarhammerManager;
 
 public class ArmyContainer{
     

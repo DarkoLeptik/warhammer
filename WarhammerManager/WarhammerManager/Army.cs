@@ -1,4 +1,4 @@
-namespace Army;
+namespace WarhammerManager;
 
 public class Army{
 
