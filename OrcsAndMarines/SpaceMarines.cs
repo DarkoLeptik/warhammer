@@ -1,5 +1,5 @@
 namespace OrcsAndMarines;
 
-public class SpaceMarines{
+public class SpaceMarines : WarhammerManager.Army{
 
 }
