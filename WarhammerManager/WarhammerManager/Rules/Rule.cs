@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WarhammerManager.Rules
 {
-    public class Rules
+    public class Rule
     {
-        public Rules()
+        public Rule()
         {
 
         }
