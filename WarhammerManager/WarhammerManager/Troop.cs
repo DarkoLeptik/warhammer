@@ -7,9 +7,13 @@ public abstract class Troop<T1,T2> : Rulable
     where T2 : Army
 {
     private T1 _mySquad;
+    private int _atk;
+    private int _armor;
 
     protected Troop(T1 newSquad)
     {
         _mySquad = newSquad;
     }
+    
+    
 }
