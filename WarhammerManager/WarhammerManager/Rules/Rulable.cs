@@ -17,5 +17,10 @@ namespace WarhammerManager.Rules
         {
 
         }
+
+        public void getRulesApplied()
+        {
+
+        }
     }
 }
