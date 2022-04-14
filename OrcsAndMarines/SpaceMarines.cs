@@ -1,8 +1,15 @@
-namespace OrcsAndMarines;
+using System;
 
-public class SpaceMarines : WarhammerManager.Army{
 
-    public SpaceMarines(){
-        
+namespace OrcsAndMarines
+{
+
+    public class SpaceMarines : WarhammerManager.Army
+    {
+
+        public SpaceMarines()
+        {
+
+        }
     }
 }

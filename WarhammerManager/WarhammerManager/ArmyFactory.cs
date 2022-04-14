@@ -1,11 +1,15 @@
 ﻿using System.Diagnostics;
 
-namespace WarhammerManager;
-
-public class ArmyFactory
+namespace WarhammerManager
 {
-    public static void CreateArmy()
+
+    public class ArmyFactory
     {
-        Console.WriteLine("You want to create an army ? Please wait it's not possible yet, but it soon will be ");
+        public static void CreateArmy()
+        {
+            Console.WriteLine("You want to create an army ? Please wait it's not possible yet, but it soon will be ");
+        }
+
+
     }
 }

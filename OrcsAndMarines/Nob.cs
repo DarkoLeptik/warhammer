@@ -1,11 +1,14 @@
 ﻿using WarhammerManager;
+using System;
 
-namespace OrcsAndMarines;
-
-public class Nob : Troop<SluggaBoyz, Ork>
+namespace OrcsAndMarines
 {
-    public Nob(SluggaBoyz newSquad) : base(newSquad)
+
+    public class Nob : Troop<SluggaBoyz, Ork>
     {
-        Console.WriteLine("I am Nob.");
+        public Nob(SluggaBoyz newSquad) : base(newSquad)
+        {
+            Console.WriteLine("I am Nob.");
+        }
     }
 }

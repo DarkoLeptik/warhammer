@@ -1,19 +1,22 @@
-﻿using WarhammerManager.Rules;
+﻿using System;
+using WarhammerManager.Rules;
 
-namespace WarhammerManager;
-
-public abstract class Troop<T1,T2> : Rulable
-    where T1 : Squad<T2> 
-    where T2 : Army
+namespace WarhammerManager
 {
-    private T1 _mySquad;
-    private int _atk;
-    private int _armor;
 
-    protected Troop(T1 newSquad)
+    public abstract class Troop<T1, T2> : Rulable
+        where T1 : Squad<T2>
+        where T2 : Army
     {
-        _mySquad = newSquad;
+        private T1 _mySquad;
+        private int _atk;
+        private int _armor;
+
+        protected Troop(T1 newSquad)
+        {
+            _mySquad = newSquad;
+        }
+
+
     }
-    
-    
 }

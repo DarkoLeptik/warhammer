@@ -1,5 +1,10 @@
-﻿namespace OrcsAndMarines;
+﻿using System;
 
-public class Ork : WarhammerManager.Army
+
+namespace OrcsAndMarines
 {
+
+    public class Ork : WarhammerManager.Army
+    {
+    }
 }

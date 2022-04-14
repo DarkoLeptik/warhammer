@@ -1,11 +1,15 @@
-﻿namespace WarhammerManager;
+﻿using System;
 
-public class SquadContainer<T> where T : Army
+namespace WarhammerManager
 {
-    private Squad<T> _mySquad;
 
-    public SquadContainer(Squad<T> mySquad)
+    public class SquadContainer<T> where T : Army
     {
-        _mySquad = mySquad;
+        private Squad<T> _mySquad;
+
+        public SquadContainer(Squad<T> mySquad)
+        {
+            _mySquad = mySquad;
+        }
     }
 }
