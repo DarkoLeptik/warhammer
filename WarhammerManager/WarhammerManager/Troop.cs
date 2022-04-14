@@ -1,6 +1,8 @@
-﻿namespace WarhammerManager;
+﻿using WarhammerManager.Rules;
 
-public abstract class Troop<T1,T2> 
+namespace WarhammerManager;
+
+public abstract class Troop<T1,T2> : Rulable
     where T1 : Squad<T2> 
     where T2 : Army
 {
