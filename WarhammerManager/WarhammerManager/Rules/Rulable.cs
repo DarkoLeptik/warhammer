@@ -8,19 +8,11 @@ namespace WarhammerManager.Rules
 {
     interface Rulable
     {
-        public void AddRules()
-        {
+        public void AddRules(Rule rule);
 
-        }
+        public void DeleteRules(Rule rule);
 
-        public void DeleteRules()
-        {
+        public List<Rule> getRulesApplied();
 
-        }
-
-        public void getRulesApplied()
-        {
-
-        }
     }
 }

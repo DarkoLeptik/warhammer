@@ -11,10 +11,26 @@ namespace WarhammerManager
         private T1 _mySquad;
         private int _atk;
         private int _armor;
-
+        private List<Rule> _rulesApplied;
         protected Troop(T1 newSquad)
         {
+            _rulesApplied = new List<Rule>();
             _mySquad = newSquad;
+        }
+
+        public void AddRules(Rule rule)
+        {
+
+        }
+
+        public void DeleteRules(Rule rule)
+        {
+
+        }
+
+        public List<Rule> getRulesApplied()
+        {
+            return _rulesApplied;
         }
 
 

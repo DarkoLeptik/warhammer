@@ -8,7 +8,7 @@ namespace WarhammerManager.Rules
 {
     public class RulesFactory
     {
-        public List<Rules> rules;
+        public List<Rule> rules;
 
         private static RulesFactory? instance;
 
@@ -26,7 +26,7 @@ namespace WarhammerManager.Rules
 
         private RulesFactory()
         {
-            rules = new List<Rules>();
+            rules = new List<Rule>();
             Console.WriteLine("I am an instance of rulefactory !");
         }
     }

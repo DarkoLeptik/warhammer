@@ -17,5 +17,20 @@ namespace WarhammerManager.Equipments
             rulesApplied = new List<Rule>();
             equipmentName = _equipmentName;
         }
+        
+        public void AddRules(Rule rule)
+        {
+
+        }
+
+        public void DeleteRules(Rule rule)
+        {
+
+        }
+
+        public List<Rule> getRulesApplied()
+        {
+            return rulesApplied;
+        }
     }
 }
