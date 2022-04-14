@@ -8,6 +8,11 @@ namespace WarhammerManager.Rules
 {
     class Rules
     {
+        public Rules()
+        {
+
+        }
+
         public void Apply()
         {
 

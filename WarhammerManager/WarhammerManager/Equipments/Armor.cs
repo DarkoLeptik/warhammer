@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WarhammerManager.Rules;
 
 namespace WarhammerManager.Equipments
 {
-    abstract class Equipment : Rulable
+    class Armor: Equipment
     {
-        string equipmentName;
+        int armor;
 
-        public Equipment(string _equipmentName)
+        public Armor(string _armorName, int _armor) : base(_armorName)
         {
-            equipmentName = _equipmentName;
+            armor = _armor;
         }
     }
 }
