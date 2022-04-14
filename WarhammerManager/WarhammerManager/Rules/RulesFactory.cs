@@ -8,7 +8,7 @@ namespace WarhammerManager.Rules
 {
     public class RulesFactory
     {
-        private List<Rules> rules;
+        public List<Rules> rules;
 
         private static RulesFactory? instance;
 
