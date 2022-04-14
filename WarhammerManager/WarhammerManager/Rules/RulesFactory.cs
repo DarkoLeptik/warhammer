@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WarhammerManager.Rules
 {
-    class RulesFactory
+    public class RulesFactory
     {
-        List<Rules> rules;
+        private List<Rules> rules;
 
-        public static RulesFactory instance;
+        private static RulesFactory? instance;
 
         public static RulesFactory Instance
         {
@@ -24,9 +24,10 @@ namespace WarhammerManager.Rules
             }
         }
 
-        public RulesFactory()
+        private RulesFactory()
         {
             rules = new List<Rules>();
+            Console.WriteLine("I am an instance of rulefactory !");
         }
     }
 }
