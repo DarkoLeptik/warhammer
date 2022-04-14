@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WarhammerManager.Rules;
 
 namespace WarhammerManager.Equipments
 {
-    abstract class Equipment
+    abstract class Equipment : Rulable
     {
         string equipmentName;
 
