@@ -3,7 +3,7 @@ namespace WarhammerManager
 
     public abstract class Army
     {
-        string armyName;
+        internal string armyName;
 
         public Army(string _armyName)
         {

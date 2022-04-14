@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using WarhammerManager;
 using OrcsAndMarines;
-using WarhammerManager.Rules;
+using System;
+
+
 
 Console.WriteLine("Hello, World!");
 ArmyFactory.CreateArmy();
@@ -14,3 +16,5 @@ var myArmyContainer = new ArmyContainer<Ork>(myArmy);
 myArmyContainer.AddSquad(mySquad);
 
 var myInstance = RulesFactory.Instance;
+
+
