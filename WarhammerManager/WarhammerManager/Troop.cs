@@ -26,7 +26,7 @@ namespace WarhammerManager
             }
             else
             {
-                rule.Apply();
+                //rule.Apply();
             }
         }
 
@@ -34,7 +34,7 @@ namespace WarhammerManager
         {
             if (_rulesApplied.Contains(rule))
             {
-                rule.Remove();
+                //rule.Remove();
             }
             else
             {

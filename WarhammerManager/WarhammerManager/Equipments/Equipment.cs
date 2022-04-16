@@ -7,15 +7,34 @@ using WarhammerManager.Rules;
 
 namespace WarhammerManager.Equipments
 {
-    abstract class Equipment : Rulable
+    public abstract class Equipment : Rulable
     {
         string equipmentName;
         List<Rule> rulesApplied;
+        public List<Rule> RulesApplied
+        {
+            get { return rulesApplied; }
+            set { rulesApplied = value; }
+        }
+        int attackStat;
+        public int AttackStat
+        {
+            get { return attackStat; }
+            set { attackStat = value; }
+        }
+        int defenseStat;
+        public int DefenseStat
+        {
+            get { return defenseStat; }
+            set { defenseStat = value; }
+        }
 
-        public Equipment(string _equipmentName)
+        public Equipment(string _equipmentName, int _attackStat, int _defenseStat)
         {
             rulesApplied = new List<Rule>();
             equipmentName = _equipmentName;
+            attackStat = _attackStat;
+            defenseStat = _defenseStat;
         }
         
         public void AddRules(Rule rule)
@@ -26,7 +45,7 @@ namespace WarhammerManager.Equipments
             }
             else
             {
-                rule.Apply();
+                rule.Apply(this);
             }
         }
 
@@ -34,17 +53,12 @@ namespace WarhammerManager.Equipments
         {
             if (rulesApplied.Contains(rule))
             {
-                rule.Remove();
+                rule.Remove(this);
             }
             else
             {
                 Console.WriteLine("Cette règle n'est pas appliquée à cet équipement");
             }
-        }
-
-        public List<Rule> getRulesApplied()
-        {
-            return rulesApplied;
-        }
+        }      
     }
 }

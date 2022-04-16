@@ -12,7 +12,5 @@ namespace WarhammerManager.Rules
 
         public void DeleteRules(Rule rule);
 
-        public List<Rule> getRulesApplied();
-
     }
 }
