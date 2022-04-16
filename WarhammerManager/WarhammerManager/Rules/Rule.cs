@@ -17,14 +17,18 @@ namespace WarhammerManager.Rules
             defenseBonus = _defenseBonus;
         }
 
-        public void ApplyRuleToTroop()
+        public void ApplyRuleToTroop<T1, T2>(Troop<T1,T2> troop) where T1 : Squad<T2> where T2 : Army
         {
-
+            troop.Attack += attackBonus;
+            troop.Armor += defenseBonus;
+            troop.RulesApplied.Add(this);
         }
 
-        public void RemoveRuleToTroop()
+        public void RemoveRuleToTroop<T1,T2>(Troop<T1, T2> troop) where T1 : Squad<T2> where T2: Army
         {
-
+            troop.Attack -= attackBonus;
+            troop.Armor -= defenseBonus;
+            troop.RulesApplied.Remove(this);
         }
 
         public void ApplyRuleToEquipment(Equipment equipment)

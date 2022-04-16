@@ -45,7 +45,7 @@ namespace WarhammerManager.Equipments
             }
             else
             {
-                rule.Apply(this);
+                rule.ApplyRuleToEquipment(this);
             }
         }
 
@@ -53,7 +53,7 @@ namespace WarhammerManager.Equipments
         {
             if (rulesApplied.Contains(rule))
             {
-                rule.Remove(this);
+                rule.RemoveRuleToEquipment(this);
             }
             else
             {

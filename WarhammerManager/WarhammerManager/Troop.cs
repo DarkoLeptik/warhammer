@@ -10,8 +10,23 @@ namespace WarhammerManager
     {
         private T1 _mySquad;
         private int _atk;
+        public int Attack
+        {
+            get { return _atk; }
+            set { _atk = value; }
+        }
         private int _armor;
+        public int Armor
+        {
+            get { return _armor; }
+            set { _armor = value; }
+        }
         private List<Rule> _rulesApplied;
+        public List<Rule> RulesApplied
+        {
+            get { return _rulesApplied; }
+            set { _rulesApplied = value; }
+        }
         protected Troop(T1 newSquad)
         {
             _rulesApplied = new List<Rule>();
@@ -26,7 +41,7 @@ namespace WarhammerManager
             }
             else
             {
-                //rule.Apply();
+                rule.ApplyRuleToTroop<T1, T2>(this);
             }
         }
 
@@ -34,7 +49,7 @@ namespace WarhammerManager
         {
             if (_rulesApplied.Contains(rule))
             {
-                //rule.Remove();
+                rule.RemoveRuleToTroop<T1, T2>(this);
             }
             else
             {
