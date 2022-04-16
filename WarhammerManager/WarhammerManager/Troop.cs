@@ -56,12 +56,5 @@ namespace WarhammerManager
                 Console.WriteLine("Cette règle n'est pas appliquée à cette arme");
             }
         }
-
-        public List<Rule> getRulesApplied()
-        {
-            return _rulesApplied;
-        }
-
-
     }
 }
