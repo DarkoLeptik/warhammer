@@ -20,12 +20,26 @@ namespace WarhammerManager.Equipments
         
         public void AddRules(Rule rule)
         {
-
+            if (rulesApplied.Contains(rule))
+            {
+                Console.WriteLine("Cette règle est déjà appliquée à cet équipement");
+            }
+            else
+            {
+                rule.Apply();
+            }
         }
 
         public void DeleteRules(Rule rule)
         {
-
+            if (rulesApplied.Contains(rule))
+            {
+                rule.Remove();
+            }
+            else
+            {
+                Console.WriteLine("Cette règle n'est pas appliquée à cet équipement");
+            }
         }
 
         public List<Rule> getRulesApplied()
