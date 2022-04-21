@@ -9,32 +9,24 @@ namespace WarhammerManager.Equipments
 {
     public abstract class Equipment : Rulable
     {
-        string equipmentName;
+        public string equipmentName;
         List<Rule> rulesApplied;
         public List<Rule> RulesApplied
         {
             get { return rulesApplied; }
             set { rulesApplied = value; }
         }
-        int attackStat;
-        public int AttackStat
-        {
-            get { return attackStat; }
-            set { attackStat = value; }
-        }
-        int defenseStat;
-        public int DefenseStat
-        {
-            get { return defenseStat; }
-            set { defenseStat = value; }
-        }
+
+        public int AttackStat { get; internal set; }
+
+        public int DefenseStat { get; internal set; }
 
         public Equipment(string _equipmentName, int _attackStat, int _defenseStat)
         {
             rulesApplied = new List<Rule>();
             equipmentName = _equipmentName;
-            attackStat = _attackStat;
-            defenseStat = _defenseStat;
+            AttackStat = _attackStat;
+            DefenseStat = _defenseStat;
         }
         
         public void AddRules(Rule rule)

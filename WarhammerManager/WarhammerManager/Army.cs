@@ -1,19 +1,20 @@
+using WarhammerManager.Equipments;
+
 namespace WarhammerManager
 {
 
     public abstract class Army
     {
         internal string armyName;
+        public AuthorizedEquipments myConstraints = new AuthorizedEquipments();
 
-        public Army(string _armyName)
+        protected Army(string _armyName)
         {
             armyName = _armyName;
         }
-        public Army()
+        protected Army()
         {
             armyName = "NoName";
         }
-
-
     }
 }

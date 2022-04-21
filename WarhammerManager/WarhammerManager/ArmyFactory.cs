@@ -22,8 +22,6 @@ namespace WarhammerManager
             mySquad.MyArmy = myArmy;
             SquadContainer<T1> container = new(mySquad);
             return container;
-                
-
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WarhammerManager.Equipments
 {
-    class Armor: Equipment
+    public class Armor: Equipment
     {
 
         public Armor(string _armorName, int _armor) : base(_armorName, 0, _armor)
