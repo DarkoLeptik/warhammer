@@ -4,9 +4,9 @@ using System;
 namespace OrcsAndMarines
 {
 
-    public class Nob : Troop<SluggaBoyz, Ork>
+    public class Nob : Troop<Ork, SluggaBoyz>
     {
-        public Nob(SluggaBoyz newSquad) : base(newSquad)
+        public Nob()
         {
             Console.WriteLine("I am Nob.");
         }

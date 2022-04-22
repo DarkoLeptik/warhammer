@@ -5,16 +5,16 @@ namespace WarhammerManager
 
     public abstract class Army
     {
-        internal string armyName;
-        public AuthorizedEquipments myConstraints = new AuthorizedEquipments();
+        internal string ArmyName;
+        public AuthorizedEquipments MyAuthorizedEquipments = new AuthorizedEquipments();
 
-        protected Army(string _armyName)
+        protected Army(string armyName)
         {
-            armyName = _armyName;
+            ArmyName = armyName;
         }
         protected Army()
         {
-            armyName = "NoName";
+            ArmyName = "NoName";
         }
     }
 }

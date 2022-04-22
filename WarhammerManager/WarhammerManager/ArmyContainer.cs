@@ -6,31 +6,31 @@ namespace WarhammerManager
 
     public class ArmyContainer<T> where T : Army
     {
-        private T myArmy;
+        private T _myArmy;
 
 
         public T MyArmy
         {
             get
             {
-                return myArmy;
+                return _myArmy;
             }
             internal set
             {
-                myArmy = value;
+                _myArmy = value;
 
             }
         }
 
-        private List<SquadContainer<T>> listOfSquad;
+        private ListOfSquad<T> listOfSquad;
         public ArmyContainer(T army)
         {
-            myArmy = army;
-            listOfSquad = new List<SquadContainer<T>>();
+            _myArmy = army;
+            listOfSquad = new ListOfSquad<T>();
         }
 
 
-        public void AddSquad(SquadContainer<T> squad)
+        public void AddSquad(SquadContainer<T, Squad<T>> squad)
         {
             listOfSquad.Add(squad);
         }

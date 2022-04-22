@@ -28,12 +28,12 @@ namespace WarhammerManager.Equipments
             AttackStat = _attackStat;
             DefenseStat = _defenseStat;
         }
-        
-        public void AddRules(Rule rule)
+
+        void Rulable.AddRules(Rule rule)
         {
             if (rulesApplied.Contains(rule))
             {
-                Console.WriteLine("Cette règle est déjà appliquée à cet équipement");
+                Console.WriteLine("This rule has already been applied to this equipment.");
             }
             else
             {
@@ -41,7 +41,7 @@ namespace WarhammerManager.Equipments
             }
         }
 
-        public void DeleteRules(Rule rule)
+        void Rulable.DeleteRules(Rule rule)
         {
             if (rulesApplied.Contains(rule))
             {
@@ -49,7 +49,7 @@ namespace WarhammerManager.Equipments
             }
             else
             {
-                Console.WriteLine("Cette règle n'est pas appliquée à cet équipement");
+                Console.WriteLine("This rule isn't applied to this troop.");
             }
         }      
     }

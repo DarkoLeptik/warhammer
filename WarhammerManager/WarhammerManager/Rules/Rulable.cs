@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WarhammerManager.Rules
 {
-    interface Rulable
+    public interface Rulable
     {
-        public void AddRules(Rule rule);
+        internal void AddRules(Rule rule);
 
-        public void DeleteRules(Rule rule);
+        internal void DeleteRules(Rule rule);
 
     }
 }

@@ -5,36 +5,31 @@ using System;
 using WarhammerManager.Equipments;
 using WarhammerManager.Rules;
 
+Console.WriteLine("[[[[ WELCOME TO THE WARHAMMER ARMY MANAGER ]]]]");
 
-
-
-Console.WriteLine("Hello, World!");
-//ArmyFactory.CreateArmy();
-
-var myArmy = ArmyFactory.CreateArmy<Ork>("metamaus ©");
-var mySquad = ArmyFactory.CreateSquad<Ork, SluggaBoyz>(myArmy.MyArmy);
-var myBoyy = new Nob((SluggaBoyz)mySquad.MySquad); // TODO change this
+var myArmy = ArmyFactory.CreateArmy<Ork>("Ork army");
+var mySquad = ArmyFactory.CreateSquad<Ork, SluggaBoyz>(myArmy);
+var myBoyy = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Nob>(mySquad);
+var myHulk = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Hulk>(mySquad);
 
 var bigWeapon = new Weapon("BoomBoom", 50, 3);
 
 myBoyy.AddWeapon(bigWeapon);
 
-myArmy.MyArmy.myConstraints.AddAuthorizedEquipment(bigWeapon.equipmentName);
+myArmy.MyArmy.MyAuthorizedEquipments.AddAuthorizedEquipment(bigWeapon.equipmentName);
 
 myBoyy.AddWeapon(bigWeapon);
 
+Console.WriteLine(mySquad);
+
 myBoyy.RemoveWeapon(bigWeapon);
 myBoyy.RemoveWeapon(bigWeapon);
 
-var myInstance = RulesFactory.Instance;
+var instance = RulesFactory.Instance;
 
-var myRule = new Rule(3, -1);
-
+int ruleIndex = instance.CreateRule(3, -1);
 Console.WriteLine(myBoyy);
-myBoyy.AddRules(myRule);
+instance.ApplyRule(myBoyy, ruleIndex);
 Console.WriteLine(myBoyy);
-myBoyy.AddRules(myRule);
+instance.ApplyRule(myBoyy, ruleIndex);
 Console.WriteLine(myBoyy);
-myBoyy.DeleteRules(myRule);
-Console.WriteLine(myBoyy);
-myBoyy.DeleteRules(myRule);

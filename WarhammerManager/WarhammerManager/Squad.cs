@@ -37,7 +37,7 @@ namespace WarhammerManager
             if (myConstraints.FindEquipment(name))
                 return true;
 
-            return _myArmy != null && _myArmy.myConstraints.FindEquipment(name);
+            return _myArmy != null && _myArmy.MyAuthorizedEquipments.FindEquipment(name);
         }
     }
 }

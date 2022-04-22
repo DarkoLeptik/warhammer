@@ -11,20 +11,20 @@ namespace WarhammerManager.Rules
     {
         private int attackBonus;
         private int defenseBonus;
-        public Rule(int _attackBonus, int _defenseBonus)
+        internal Rule(int _attackBonus, int _defenseBonus)
         {
             attackBonus = _attackBonus;
             defenseBonus = _defenseBonus;
         }
 
-        public void ApplyRuleToTroop<T1, T2>(Troop<T1,T2> troop) where T1 : Squad<T2> where T2 : Army
+        public void ApplyRuleToTroop<T1, T2>(Troop<T1,T2> troop) where T1 : Army where T2 : Squad<T1>
         {
             troop.Attack += attackBonus;
             troop.Armor += defenseBonus;
             troop.RulesApplied.Add(this);
         }
 
-        public void RemoveRuleToTroop<T1,T2>(Troop<T1, T2> troop) where T1 : Squad<T2> where T2: Army
+        public void RemoveRuleToTroop<T1,T2>(Troop<T1, T2> troop) where T1 : Army where T2 : Squad<T1>
         {
             troop.Attack -= attackBonus;
             troop.Armor -= defenseBonus;
@@ -44,6 +44,11 @@ namespace WarhammerManager.Rules
             equipment.AttackStat -= attackBonus;
             equipment.DefenseStat -= defenseBonus;
             equipment.RulesApplied.Remove(this);
+        }
+
+        public override string ToString()
+        {
+            return "attack bonus: " + attackBonus + " defense bonus " + defenseBonus;
         }
     }
 }

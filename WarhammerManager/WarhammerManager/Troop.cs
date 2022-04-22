@@ -5,12 +5,12 @@ using WarhammerManager.Rules;
 namespace WarhammerManager
 {
     public abstract class Troop<T1, T2> : Rulable
-        where T1 : Squad<T2>
-        where T2 : Army
+        where T1 : Army
+        where T2 : Squad<T1>
     {
-        private T1 _mySquad;
+        private T2? _mySquad;
 
-        public T1 MySquad
+        public T2 MySquad
         {
             get
             {
@@ -37,23 +37,44 @@ namespace WarhammerManager
         
         public AuthorizedEquipments myConstraints = new AuthorizedEquipments();
         
-        protected Troop(T1 newSquad)
+        protected Troop()
         {
             _rulesApplied = new List<Rule>();
-            _mySquad = newSquad;
+            _mySquad = null;
             _equippedWeapons = new List<Weapon>();
+        }
+
+        internal void AddToSquad(T2 newSquad)
+        {
+            _mySquad ??= newSquad;
         }
 
         public override string ToString()
         {
-            return "Atk: " + Attack + " Armor: " + Armor;
+            string description = "<- " + this.GetType().Name + " ->\nAttack: " + Attack + "\nDefense: " + Armor + "\n";
+
+            if (_equippedArmor != null)
+            {
+                description += "Armor: " + _equippedArmor.equipmentName + " (" + _equippedArmor.DefenseStat + " defense)\n";
+            }
+
+            if (_equippedWeapons.Count > 0)
+            {
+                description += "Weapons:\n";
+                foreach (var weapon in _equippedWeapons)
+                {
+                    description += "- " + weapon.equipmentName + " (" + weapon.AttackStat + " attack)\n";
+                }
+            }
+            
+            return description;
         }
 
-        public void AddRules(Rule rule)
+        void Rulable.AddRules(Rule rule)
         {
             if (_rulesApplied.Contains(rule))
             {
-                Console.WriteLine("Cette règle est déjà appliquée à cette arme");
+                Console.WriteLine("This rule has already been applied to this troop.");
             }
             else
             {
@@ -61,7 +82,7 @@ namespace WarhammerManager
             }
         }
 
-        public void DeleteRules(Rule rule)
+        void Rulable.DeleteRules(Rule rule)
         {
             if (_rulesApplied.Contains(rule))
             {
@@ -69,7 +90,7 @@ namespace WarhammerManager
             }
             else
             {
-                Console.WriteLine("Cette règle n'est pas appliquée à cette arme");
+                Console.WriteLine("This rule isn't applied to this troop.");
             }
         }
 
@@ -80,7 +101,7 @@ namespace WarhammerManager
                 return true;
             }
 
-            return _mySquad.IsEquipmentAuthorized(name);
+            return _mySquad != null && _mySquad.IsEquipmentAuthorized(name);
         }
 
         // Equip an armor if none is equipped, and return false if one is already equipped

@@ -3,11 +3,14 @@
 namespace WarhammerManager
 {
 
-    public class SquadContainer<T> where T : Army
+    public class SquadContainer<T1, T2> 
+        where T1 : Army
+        where T2 : Squad<T1>
     {
-        private Squad<T> _mySquad;
+        private T2 _mySquad;
+        private List<Troop<T1, T2>> _myTroops;
 
-        public Squad<T> MySquad
+        public T2 MySquad
         {
             get
             {
@@ -19,9 +22,30 @@ namespace WarhammerManager
             }
         }
 
-        public SquadContainer(Squad<T> mySquad)
+        public SquadContainer(T2 mySquad)
         {
             _mySquad = mySquad;
+            _myTroops = new List<Troop<T1,T2>>();
+        }
+
+        public override string ToString()
+        {
+            string listOfTroops = "<<-- " + _mySquad.GetType() + " -->>\n";
+
+            foreach (var troop in _myTroops)
+            {
+                listOfTroops += troop.ToString();
+            }
+            return listOfTroops;
+        }
+
+        public void AddTroop(Troop<T1, T2> newRecruit)
+        {
+            if (_myTroops.Contains(newRecruit))
+            {
+                return;
+            }
+            _myTroops.Add(newRecruit);
         }
     }
 }
