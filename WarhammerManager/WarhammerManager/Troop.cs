@@ -8,6 +8,7 @@ namespace WarhammerManager
         where T1 : Army
         where T2 : Squad<T1>
     {
+        private string _troopName;
         private Squad<T1>? _mySquad;
 
         public Squad<T1>? MySquad
@@ -46,12 +47,13 @@ namespace WarhammerManager
         
         public static explicit operator Troop<T1, Squad<T1>> (Troop<T1, T2> n)
         {
-            return new Troop<T1, Squad<T1>>(n._rulesApplied, n._mySquad, n._equippedWeapons, n._equippedArmor);
+            return new Troop<T1, Squad<T1>>(n._rulesApplied, n._mySquad, n._equippedWeapons, n._equippedArmor,n.GetType().Name);
         }
 
-        internal Troop (List<Rule> rulesApplied, Squad<T1>? mySquad, List<Weapon> equippedWeapons, Armor? armor)
+        internal Troop (List<Rule> rulesApplied, Squad<T1>? mySquad, List<Weapon> equippedWeapons, Armor? armor, string troopName)
         {
             _rulesApplied = new List<Rule>();
+            _troopName = troopName;
 
             foreach (var rule in rulesApplied)
             {
@@ -76,7 +78,7 @@ namespace WarhammerManager
 
         public override string ToString()
         {
-            string description = "<- " + this.GetType().Name + " ->\nAttack: " + Attack + "\nDefense: " + Armor + "\n";
+            string description = "<- " + _troopName + " ->\nAttack: " + Attack + "\nDefense: " + Armor + "\n";
 
             if (_equippedArmor != null)
             {
