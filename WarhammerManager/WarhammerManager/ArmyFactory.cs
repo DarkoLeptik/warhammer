@@ -26,24 +26,27 @@ namespace WarhammerManager
             mySquad.MyArmy = myArmy.MyArmy;
             SquadContainer<T1> container = new(mySquad);
 
-            myArmy.AddSquad(container); //as SquadContainer<T1, Squad<T1>> ?? throw new InvalidOperationException());
+            myArmy.AddSquad(container);
             
             Console.WriteLine("New " + mySquad.GetType() + " created and added to " + myArmy.MyArmy.ArmyName);
             
             return container;
         }
 
-        public static Troop<T1, T2> CreateTroop<T1, T2, T3>(SquadContainer<T1> mySquad) 
+        public static Troop<T1, T2>? CreateTroop<T1, T2, T3>(SquadContainer<T1> mySquad) 
             where T1 : Army 
             where T2 : Squad<T1> 
             where T3 : Troop<T1, T2>, new()
         {
-            T3 myTroop = new T3();
-            myTroop.AddToSquad(mySquad.MySquad);
+            if(mySquad.MySquad is T2)
+            {
+                T3 myTroop = new T3();
+                myTroop.AddToSquad(mySquad.MySquad);
+                mySquad.AddTroop((Troop<T1, Squad<T1>>) myTroop);
+                return myTroop;
+            }
 
-            mySquad.AddTroop((Troop<T1, Squad<T1>>) myTroop);
-
-            return myTroop;
+            return null;
         }
     }
 }

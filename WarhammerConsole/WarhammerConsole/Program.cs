@@ -7,14 +7,18 @@ using WarhammerManager.Rules;
 
 Console.WriteLine("[[[[ WELCOME TO THE WARHAMMER ARMY MANAGER ]]]]");
 
-//var myArmy = ArmyFactory.CreateArmy<Ork>("Ork army");
-//var mySquad = ArmyFactory.CreateSquad<Ork, SluggaBoyz>(myArmy);
-//var myWaag = ArmyFactory.CreateTroop<Ork, Shootagyrls, Waag>(mySquad);
-//var myWyld = ArmyFactory.CreateTroop<Ork, Shootagyrls, Wyld>(mySquad);
+var myArmy = ArmyFactory.CreateArmy<Ork>("Ork army");
+var mySluggaSquad = ArmyFactory.CreateSquad<Ork, SluggaBoyz>(myArmy);
+var myNob = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Nob>(mySluggaSquad);
+var myHulk = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Hulk>(mySluggaSquad);
+var myShootSquad = ArmyFactory.CreateSquad<Ork, Shootagyrls>(myArmy);
+var myWaag = ArmyFactory.CreateTroop<Ork, Shootagyrls, Waag>(mySluggaSquad);
+var myWyld = ArmyFactory.CreateTroop<Ork, Shootagyrls, Wyld>(myShootSquad);
 
-var myArmy = ArmyFactory.CreateArmy<SpaceMarines>("SpaceMarines Army");
-var mySquad = ArmyFactory.CreateSquad<SpaceMarines, Specialists>(myArmy);
-var myRagnar = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Ragnar>(mySquad);
-var mySniper = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Sniper>(mySquad);
+var my2ndArmy = ArmyFactory.CreateArmy<SpaceMarines>("SpaceMarines Army");
+var mySpaceSquad = ArmyFactory.CreateSquad<SpaceMarines, Specialists>(my2ndArmy);
+var myRagnar = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Ragnar>(mySpaceSquad);
+var mySniper = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Sniper>(mySpaceSquad);
 
 Console.WriteLine(myArmy);
+Console.WriteLine(my2ndArmy);
