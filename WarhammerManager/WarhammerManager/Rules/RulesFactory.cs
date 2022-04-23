@@ -10,17 +10,17 @@ namespace WarhammerManager.Rules
     {
         public List<Rule> rules;
 
-        private static RulesFactory? instance;
+        private static RulesFactory? _instance;
 
         public static RulesFactory Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new RulesFactory();
+                    _instance = new RulesFactory();
                 }
-                return instance;
+                return _instance;
             }
         }
 
@@ -30,18 +30,37 @@ namespace WarhammerManager.Rules
             Console.WriteLine("I am an instance of rulefactory !");
         }
 
-        public int CreateRule(int attackBonus, int defenseBonus)
+        public int CreateRule(int attackBonus, int defenseBonus, string ruleName)
         {
-            Rule newRule = new Rule(attackBonus, defenseBonus);
+            Rule newRule = new Rule(attackBonus, defenseBonus, ruleName);
             
             rules.Add(newRule);
 
             return rules.IndexOf(newRule);
         }
 
-        public void ApplyRule(Rulable objectToRule, int ruleIndex)
+        public bool ApplyRule(Rulable objectToRule, int ruleIndex)
         {
-            objectToRule.AddRules(rules[ruleIndex]);
+            if (ruleIndex < rules.Count)
+            {
+                objectToRule.AddRules(rules[ruleIndex]);
+                return true;
+            }
+            return false;
+        }
+        
+        public bool ApplyRule(Rulable objectToRule, string ruleName)
+        {
+            foreach (var rule in rules)
+            {
+                if (rule.RuleName == ruleName)
+                {
+                    objectToRule.AddRules(rule);
+                    return true;
+                }
+            }
+
+            return false;
         }
         
         public void RemoveRule(Rulable objectToRule, int ruleIndex)
@@ -54,7 +73,7 @@ namespace WarhammerManager.Rules
             string myRules = "### Existing Rules ###\n";
             foreach (var rule in rules)
             {
-                myRules += "[" + rules.IndexOf(rule) + "] "+ rule.ToString() + "\n";
+                myRules += "[" + rules.IndexOf(rule) + "] "+ rule + "\n";
             }
 
             return myRules;

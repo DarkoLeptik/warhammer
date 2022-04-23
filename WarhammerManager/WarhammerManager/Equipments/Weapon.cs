@@ -8,11 +8,12 @@ namespace WarhammerManager.Equipments
 {
     public class Weapon: Equipment
     {
-        public int Range { get; internal set; }
+        public Weapon(string weaponName, int attack) : base(weaponName, attack, 0)
+        { }
         
-        public Weapon(string _weaponName, int _attack, int range) : base(_weaponName, _attack, 0)
+        public override string ToString()
         {
-            Range = range;
+            return base.ToString() + " attack bonus : " + AttackStat;
         }
     }
 }

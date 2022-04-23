@@ -55,7 +55,7 @@ namespace WarhammerManager
 
             if (_equippedArmor != null)
             {
-                description += "Armor: " + _equippedArmor.equipmentName + " (" + _equippedArmor.DefenseStat + " defense)\n";
+                description += "Armor: " + _equippedArmor;
             }
 
             if (_equippedWeapons.Count > 0)
@@ -63,7 +63,7 @@ namespace WarhammerManager
                 description += "Weapons:\n";
                 foreach (var weapon in _equippedWeapons)
                 {
-                    description += "- " + weapon.equipmentName + " (" + weapon.AttackStat + " attack)\n";
+                    description += " - " + weapon + "\n";
                 }
             }
             
@@ -107,17 +107,17 @@ namespace WarhammerManager
         // Equip an armor if none is equipped, and return false if one is already equipped
         public bool AddArmor(Armor newArmor)
         {
-            if (IsEquipmentAuthorized(newArmor.equipmentName) && _equippedArmor == null)
+            if (IsEquipmentAuthorized(newArmor.EquipmentName) && _equippedArmor == null)
             {
                 _equippedArmor = newArmor;
                 Armor += newArmor.DefenseStat;
                 
-                Console.WriteLine(newArmor.equipmentName + " was equipped !");
+                Console.WriteLine(newArmor.EquipmentName + " was equipped !");
                 
                 return true;
             }
             
-            Console.WriteLine(newArmor.equipmentName + " wasn't equipped.");
+            Console.WriteLine(newArmor.EquipmentName + " wasn't equipped.");
             return false;
         }
 
@@ -134,14 +134,14 @@ namespace WarhammerManager
 
         public bool AddWeapon(Weapon newWeapon)
         {
-            if (IsEquipmentAuthorized(newWeapon.equipmentName))
+            if (IsEquipmentAuthorized(newWeapon.EquipmentName))
             {
                 _equippedWeapons.Add(newWeapon);
-                Console.WriteLine(newWeapon.equipmentName + " was equipped !");
+                Console.WriteLine(newWeapon.EquipmentName + " was equipped !");
                 return true;
             }
             
-            Console.WriteLine(newWeapon.equipmentName + " wasn't equipped.");
+            Console.WriteLine(newWeapon.EquipmentName + " wasn't equipped.");
             return false;
         }
 

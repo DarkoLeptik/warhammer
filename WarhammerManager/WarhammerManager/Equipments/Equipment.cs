@@ -9,7 +9,7 @@ namespace WarhammerManager.Equipments
 {
     public abstract class Equipment : Rulable
     {
-        public string equipmentName;
+        public string EquipmentName;
         List<Rule> rulesApplied;
         public List<Rule> RulesApplied
         {
@@ -21,12 +21,17 @@ namespace WarhammerManager.Equipments
 
         public int DefenseStat { get; internal set; }
 
-        public Equipment(string _equipmentName, int _attackStat, int _defenseStat)
+        public Equipment(string equipmentName, int attackStat, int defenseStat)
         {
             rulesApplied = new List<Rule>();
-            equipmentName = _equipmentName;
-            AttackStat = _attackStat;
-            DefenseStat = _defenseStat;
+            EquipmentName = equipmentName;
+            AttackStat = attackStat;
+            DefenseStat = defenseStat;
+        }
+
+        public override string ToString()
+        {
+            return EquipmentName;
         }
 
         void Rulable.AddRules(Rule rule)

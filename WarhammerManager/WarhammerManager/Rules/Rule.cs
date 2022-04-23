@@ -9,46 +9,49 @@ namespace WarhammerManager.Rules
 {
     public class Rule
     {
-        private int attackBonus;
-        private int defenseBonus;
-        internal Rule(int _attackBonus, int _defenseBonus)
+        private int _attackBonus;
+        private int _defenseBonus;
+        internal readonly string RuleName;
+        
+        internal Rule(int attackBonus, int defenseBonus, string ruleName)
         {
-            attackBonus = _attackBonus;
-            defenseBonus = _defenseBonus;
+            _attackBonus = attackBonus;
+            _defenseBonus = defenseBonus;
+            RuleName = ruleName;
         }
 
-        public void ApplyRuleToTroop<T1, T2>(Troop<T1,T2> troop) where T1 : Army where T2 : Squad<T1>
+        internal void ApplyRuleToTroop<T1, T2>(Troop<T1,T2> troop) where T1 : Army where T2 : Squad<T1>
         {
-            troop.Attack += attackBonus;
-            troop.Armor += defenseBonus;
+            troop.Attack += _attackBonus;
+            troop.Armor += _defenseBonus;
             troop.RulesApplied.Add(this);
         }
 
-        public void RemoveRuleToTroop<T1,T2>(Troop<T1, T2> troop) where T1 : Army where T2 : Squad<T1>
+        internal void RemoveRuleToTroop<T1,T2>(Troop<T1, T2> troop) where T1 : Army where T2 : Squad<T1>
         {
-            troop.Attack -= attackBonus;
-            troop.Armor -= defenseBonus;
+            troop.Attack -= _attackBonus;
+            troop.Armor -= _defenseBonus;
             troop.RulesApplied.Remove(this);
         }
 
-        public void ApplyRuleToEquipment(Equipment equipment)
+        internal void ApplyRuleToEquipment(Equipment equipment)
         {
-            equipment.AttackStat += attackBonus;
-            equipment.DefenseStat += defenseBonus;
+            equipment.AttackStat += _attackBonus;
+            equipment.DefenseStat += _defenseBonus;
             equipment.RulesApplied.Add(this);
         }
 
-        public void RemoveRuleToEquipment(Equipment equipment)
+        internal void RemoveRuleToEquipment(Equipment equipment)
         {
             //Appliquer changements
-            equipment.AttackStat -= attackBonus;
-            equipment.DefenseStat -= defenseBonus;
+            equipment.AttackStat -= _attackBonus;
+            equipment.DefenseStat -= _defenseBonus;
             equipment.RulesApplied.Remove(this);
         }
 
         public override string ToString()
         {
-            return "attack bonus: " + attackBonus + " defense bonus " + defenseBonus;
+            return RuleName + " attack bonus: " + _attackBonus + " defense bonus " + _defenseBonus;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WarhammerManager
     public abstract class Squad<T> where T : Army
     {
         private T? _myArmy;
-        public AuthorizedEquipments myConstraints = new AuthorizedEquipments();
+        public AuthorizedEquipments MyAuthorizedEquipments = new AuthorizedEquipments();
         
         public T? MyArmy
         {
@@ -34,7 +34,7 @@ namespace WarhammerManager
 
         internal bool IsEquipmentAuthorized(string name)
         {
-            if (myConstraints.FindEquipment(name))
+            if (MyAuthorizedEquipments.FindEquipment(name))
                 return true;
 
             return _myArmy != null && _myArmy.MyAuthorizedEquipments.FindEquipment(name);
