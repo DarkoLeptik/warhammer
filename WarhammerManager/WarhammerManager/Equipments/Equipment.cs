@@ -7,7 +7,7 @@ using WarhammerManager.Rules;
 
 namespace WarhammerManager.Equipments
 {
-    public abstract class Equipment : Rulable
+    public abstract class Equipment : IRulable
     {
         public string EquipmentName;
         List<Rule> rulesApplied;
@@ -34,7 +34,7 @@ namespace WarhammerManager.Equipments
             return EquipmentName;
         }
 
-        void Rulable.AddRules(Rule rule)
+        public void AddRules(Rule rule)
         {
             if (rulesApplied.Contains(rule))
             {
@@ -46,7 +46,7 @@ namespace WarhammerManager.Equipments
             }
         }
 
-        void Rulable.DeleteRules(Rule rule)
+        public void DeleteRules(Rule rule)
         {
             if (rulesApplied.Contains(rule))
             {

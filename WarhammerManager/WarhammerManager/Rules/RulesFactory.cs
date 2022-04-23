@@ -39,7 +39,7 @@ namespace WarhammerManager.Rules
             return rules.IndexOf(newRule);
         }
 
-        public bool ApplyRule(Rulable objectToRule, int ruleIndex)
+        public bool ApplyRule(IRulable objectToRule, int ruleIndex)
         {
             if (ruleIndex < rules.Count)
             {
@@ -49,7 +49,7 @@ namespace WarhammerManager.Rules
             return false;
         }
         
-        public bool ApplyRule(Rulable objectToRule, string ruleName)
+        public bool ApplyRule(IRulable objectToRule, string ruleName)
         {
             foreach (var rule in rules)
             {
@@ -63,7 +63,7 @@ namespace WarhammerManager.Rules
             return false;
         }
         
-        public void RemoveRule(Rulable objectToRule, int ruleIndex)
+        public void RemoveRule(IRulable objectToRule, int ruleIndex)
         {
             objectToRule.DeleteRules(rules[ruleIndex]);
         }

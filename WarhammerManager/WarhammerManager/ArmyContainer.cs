@@ -30,9 +30,19 @@ namespace WarhammerManager
         }
 
 
-        public void AddSquad(SquadContainer<T, Squad<T>> squad)
+        public void AddSquad(SquadContainer<T> squad)
         {
             listOfSquad.Add(squad);
+        }
+        
+        public override string ToString()
+        {
+            string description = "<<<--- " + _myArmy.ArmyName + " --->>>\n";
+            foreach (var squadContainer in listOfSquad)
+            {
+                description += squadContainer + "\n";
+            }
+            return description;
         }
     }
 }

@@ -4,13 +4,13 @@ using WarhammerManager.Rules;
 
 namespace WarhammerManager
 {
-    public abstract class Troop<T1, T2> : Rulable
+    public class Troop<T1, T2> : IRulable
         where T1 : Army
         where T2 : Squad<T1>
     {
-        private T2? _mySquad;
+        private Squad<T1>? _mySquad;
 
-        public T2? MySquad
+        public Squad<T1>? MySquad
         {
             get
             {
@@ -37,14 +37,39 @@ namespace WarhammerManager
         
         public AuthorizedEquipments myConstraints = new AuthorizedEquipments();
         
-        protected Troop()
+        public Troop()
         {
             _rulesApplied = new List<Rule>();
             _mySquad = null;
             _equippedWeapons = new List<Weapon>();
         }
+        
+        public static explicit operator Troop<T1, Squad<T1>> (Troop<T1, T2> n)
+        {
+            return new Troop<T1, Squad<T1>>(n._rulesApplied, n._mySquad, n._equippedWeapons, n._equippedArmor);
+        }
 
-        internal void AddToSquad(T2 newSquad)
+        internal Troop (List<Rule> rulesApplied, Squad<T1>? mySquad, List<Weapon> equippedWeapons, Armor? armor)
+        {
+            _rulesApplied = new List<Rule>();
+
+            foreach (var rule in rulesApplied)
+            {
+                this.AddRules(rule);
+            }
+            
+            if (mySquad != null)
+            {
+                _mySquad = (T2)mySquad;  
+            }
+            _equippedWeapons = new List<Weapon>(equippedWeapons);
+            if (armor != null)
+            {
+                AddArmor(armor);
+            }
+        }
+
+        internal void AddToSquad(Squad<T1> newSquad)
         {
             _mySquad ??= newSquad;
         }
@@ -70,7 +95,7 @@ namespace WarhammerManager
             return description;
         }
 
-        void Rulable.AddRules(Rule rule)
+        public void AddRules(Rule rule)
         {
             if (_rulesApplied.Contains(rule))
             {
@@ -82,7 +107,7 @@ namespace WarhammerManager
             }
         }
 
-        void Rulable.DeleteRules(Rule rule)
+        public void DeleteRules(Rule rule)
         {
             if (_rulesApplied.Contains(rule))
             {

@@ -1,6 +1,6 @@
 ﻿namespace WarhammerManager;
 
-public class ListOfSquad<T> : List<SquadContainer<T, Squad<T>>> where T: Army
+public class ListOfSquad<T> : List<SquadContainer<T>> where T: Army
 {
     
 }
