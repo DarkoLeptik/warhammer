@@ -20,6 +20,18 @@ var mySpaceSquad = ArmyFactory.CreateSquad<SpaceMarines, Specialists>(my2NdArmy)
 var myRagnar = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Ragnar>(mySpaceSquad);
 var mySniper = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Sniper>(mySpaceSquad);
 
+
+int ruleAtkBonusIndex = RulesFactory.Instance.CreateRule(10, 0, "BonusAtk");
+RulesFactory.Instance.ApplyRule(myHulk, ruleAtkBonusIndex);
+
+Weapon weaponHulk = new Weapon("Marteau de Hulk", 10);
+myHulk.AddWeapon(weaponHulk);
+
+myHulk.RemoveWeapon(weaponHulk);
+myHulk.RemoveWeapon(weaponHulk);
+
+
+
 Console.WriteLine(myArmy);
 Console.WriteLine(my2NdArmy);
 
