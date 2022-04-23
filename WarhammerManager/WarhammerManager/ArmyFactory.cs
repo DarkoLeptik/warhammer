@@ -28,7 +28,7 @@ namespace WarhammerManager
 
             myArmy.AddSquad(container); //as SquadContainer<T1, Squad<T1>> ?? throw new InvalidOperationException());
             
-            Console.WriteLine("New " + mySquad.GetType() + " created and not added to " + myArmy.MyArmy.ArmyName);
+            Console.WriteLine("New " + mySquad.GetType() + " created and added to " + myArmy.MyArmy.ArmyName);
             
             return container;
         }
