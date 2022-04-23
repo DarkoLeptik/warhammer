@@ -1,5 +1,7 @@
 ﻿using System;
 using WarhammerManager;
+using WarhammerManager.Equipments;
+using WarhammerManager.Rules;
 
 namespace OrcsAndMarines
 {

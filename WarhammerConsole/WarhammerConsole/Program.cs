@@ -12,13 +12,15 @@ var mySluggaSquad = ArmyFactory.CreateSquad<Ork, SluggaBoyz>(myArmy);
 var myNob = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Nob>(mySluggaSquad);
 var myHulk = ArmyFactory.CreateTroop<Ork, SluggaBoyz, Hulk>(mySluggaSquad);
 var myShootSquad = ArmyFactory.CreateSquad<Ork, Shootagyrls>(myArmy);
-var myWaag = ArmyFactory.CreateTroop<Ork, Shootagyrls, Waag>(mySluggaSquad);
-var myWyld = ArmyFactory.CreateTroop<Ork, Shootagyrls, Wyld>(myShootSquad);
+var myWaag = ArmyFactory.CreateTroop<Ork, Shootagyrls, Waag>(myShootSquad);
+var myWyld = ArmyFactory.CreateTroop<Ork, Shootagyrls, Wyld>(mySluggaSquad);
 
-var my2ndArmy = ArmyFactory.CreateArmy<SpaceMarines>("SpaceMarines Army");
-var mySpaceSquad = ArmyFactory.CreateSquad<SpaceMarines, Specialists>(my2ndArmy);
+var my2NdArmy = ArmyFactory.CreateArmy<SpaceMarines>("SpaceMarines Army");
+var mySpaceSquad = ArmyFactory.CreateSquad<SpaceMarines, Specialists>(my2NdArmy);
 var myRagnar = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Ragnar>(mySpaceSquad);
 var mySniper = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Sniper>(mySpaceSquad);
 
 Console.WriteLine(myArmy);
-Console.WriteLine(my2ndArmy);
+Console.WriteLine(my2NdArmy);
+
+Console.WriteLine(RulesFactory.Instance.ListOfRules());

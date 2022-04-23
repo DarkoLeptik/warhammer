@@ -51,7 +51,7 @@ namespace WarhammerManager.Rules
 
         public override string ToString()
         {
-            return RuleName + " attack bonus: " + _attackBonus + " defense bonus " + _defenseBonus;
+            return RuleName + " | attack bonus: " + _attackBonus + "| defense bonus " + _defenseBonus;
         }
     }
 }

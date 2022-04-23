@@ -39,13 +39,18 @@ namespace WarhammerManager
             return listOfTroops;
         }
 
-        public void AddTroop(Troop<T1, Squad<T1>> newRecruit)
+        internal void AddTroop(Troop<T1, Squad<T1>> newRecruit)
         {
             if (_myTroops.Contains(newRecruit))
             {
                 return;
             }
             _myTroops.Add(newRecruit);
+        }
+
+        public bool RemoveTroop(Troop<T1, Squad<T1>> wrongRecruit)
+        {
+            return _myTroops.Remove(wrongRecruit);
         }
     }
 }

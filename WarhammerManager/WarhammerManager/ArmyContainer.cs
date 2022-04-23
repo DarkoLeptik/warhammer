@@ -1,44 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WarhammerManager
+﻿namespace WarhammerManager
 {
 
     public class ArmyContainer<T> where T : Army
     {
-        private T _myArmy;
+        private readonly T _myArmy;
 
 
-        public T MyArmy
-        {
-            get
-            {
-                return _myArmy;
-            }
-            internal set
-            {
-                _myArmy = value;
+        public T MyArmy => _myArmy;
 
-            }
-        }
-
-        private ListOfSquad<T> listOfSquad;
-        public ArmyContainer(T army)
+        private readonly ListOfSquad<T> _listOfSquad;
+        internal ArmyContainer(T army)
         {
             _myArmy = army;
-            listOfSquad = new ListOfSquad<T>();
+            _listOfSquad = new ListOfSquad<T>();
         }
 
 
-        public void AddSquad(SquadContainer<T> squad)
+        internal void AddSquad(SquadContainer<T> squad)
         {
-            listOfSquad.Add(squad);
+            _listOfSquad.Add(squad);
+        }
+        
+        public bool RemoveSquad(SquadContainer<T> squad)
+        {
+            return _listOfSquad.Remove(squad);
         }
         
         public override string ToString()
         {
             string description = "<<<--- " + _myArmy.ArmyName + " --->>>\n";
-            foreach (var squadContainer in listOfSquad)
+            foreach (var squadContainer in _listOfSquad)
             {
                 description += squadContainer + "\n";
             }
