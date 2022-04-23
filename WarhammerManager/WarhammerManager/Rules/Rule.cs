@@ -7,7 +7,7 @@ using WarhammerManager.Equipments;
 
 namespace WarhammerManager.Rules
 {
-    public class Rule
+    internal class Rule
     {
         private int _attackBonus;
         private int _defenseBonus;

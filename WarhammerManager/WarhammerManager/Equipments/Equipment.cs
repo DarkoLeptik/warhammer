@@ -11,7 +11,7 @@ namespace WarhammerManager.Equipments
     {
         public string EquipmentName;
         List<Rule> rulesApplied;
-        public List<Rule> RulesApplied
+        internal List<Rule> RulesApplied
         {
             get { return rulesApplied; }
             set { rulesApplied = value; }

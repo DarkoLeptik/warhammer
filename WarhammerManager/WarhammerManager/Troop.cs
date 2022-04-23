@@ -10,7 +10,7 @@ namespace WarhammerManager
     {
         private T2? _mySquad;
 
-        public T2 MySquad
+        public T2? MySquad
         {
             get
             {
@@ -26,7 +26,7 @@ namespace WarhammerManager
         public int Armor { get; internal set; }
 
         private List<Rule> _rulesApplied;
-        public List<Rule> RulesApplied
+        internal List<Rule> RulesApplied
         {
             get { return _rulesApplied; }
             set { _rulesApplied = value; }
@@ -78,7 +78,7 @@ namespace WarhammerManager
             }
             else
             {
-                rule.ApplyRuleToTroop<T1, T2>(this);
+                rule.ApplyRuleToTroop(this);
             }
         }
 
@@ -86,7 +86,7 @@ namespace WarhammerManager
         {
             if (_rulesApplied.Contains(rule))
             {
-                rule.RemoveRuleToTroop<T1, T2>(this);
+                rule.RemoveRuleToTroop(this);
             }
             else
             {
