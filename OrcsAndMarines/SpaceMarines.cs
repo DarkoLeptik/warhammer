@@ -1,10 +1,10 @@
-using System;
-
+﻿using System;
+using WarhammerManager;
 
 namespace OrcsAndMarines
 {
 
-    public class SpaceMarines : WarhammerManager.Army
+    public class SpaceMarines : Army
     {
 
         public SpaceMarines()
