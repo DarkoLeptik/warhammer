@@ -15,6 +15,7 @@ public sealed class AuthorizedEquipments
         {
             return false;
         }
+        Console.WriteLine(name + " can now be equipped.");
         _authorizedEquipments.Add(name);
         return true;
     }

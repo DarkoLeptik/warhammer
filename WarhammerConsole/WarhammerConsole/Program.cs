@@ -24,12 +24,17 @@ var mySniper = ArmyFactory.CreateTroop<SpaceMarines, Specialists, Sniper>(mySpac
 int ruleAtkBonusIndex = RulesFactory.Instance.CreateRule(10, 0, "BonusAtk");
 RulesFactory.Instance.ApplyRule(myHulk, ruleAtkBonusIndex);
 
-Weapon weaponHulk = new Weapon("Marteau de Hulk", 10);
+Weapon weaponHulk = new Weapon("Hulk's hammer", 10);
+
+myHulk.AddWeapon(weaponHulk);
+mySluggaSquad.MySquad.MyAuthorizedEquipments.AddAuthorizedEquipment(weaponHulk.EquipmentName);
 myHulk.AddWeapon(weaponHulk);
 
-myHulk.RemoveWeapon(weaponHulk);
-myHulk.RemoveWeapon(weaponHulk);
+Console.WriteLine(myHulk);
 
+myHulk.RemoveWeapon(weaponHulk);
+myHulk.RemoveWeapon(weaponHulk);
+Console.WriteLine(myHulk);
 
 
 Console.WriteLine(myArmy);
