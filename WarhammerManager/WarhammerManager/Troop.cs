@@ -174,7 +174,15 @@ namespace WarhammerManager
 
         public bool RemoveWeapon(Weapon weaponToRemove)
         {
-            return _equippedWeapons.Remove(weaponToRemove);
+            if (_equippedWeapons.Contains(weaponToRemove))
+            {
+                return _equippedWeapons.Remove(weaponToRemove);
+            }
+            else
+            {
+                Console.WriteLine(weaponToRemove.EquipmentName + " wasn't equipped so it can't be removed.");
+                return _equippedWeapons.Remove(weaponToRemove);
+            }
         }
     }
 }
